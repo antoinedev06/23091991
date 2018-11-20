@@ -5,7 +5,7 @@ $('#nav').on('click', displayMenu);
   $('#menu').toggleClass('hidden');
   $('#nav2').toggleClass('hidden');
 }
-
+/*
 $('#search').autocomplete({
     source : function(requete, reponse){ // les deux arguments représentent les données nécessaires au plugin
 	$.ajax({
@@ -23,3 +23,5 @@ $('#search').autocomplete({
         });
     }
 });
+
+/*

@@ -17,8 +17,8 @@
 	<div id="header2">
 	<a href="#" id="nav"><i class="fas fa-bars"></i></a>
 	
-	<div id="menu" class="container">
-	<a href="#" id="nav2"><i class="far fa-window-close"></i></a>
+	<div id="menu" class="container hidden">
+	<a href="#" id="nav2" class="hidden"><i class="far fa-window-close"></i></a>
 
 	<nav>
  	<ul>
@@ -36,9 +36,13 @@
 </div>
 <form id="auto-suggest" action="#" method="post">
 	<input type="text" name="search" id="search" class="search" name="search" value="" autocomplete="off">
-	<div class="hidden">
+
+	
+
+	<ul id="data_list" class="hidden">
+
       
-  	</div>
+  	</ul>
        
 	<select>
 		<option selected="selected">Jour</option>
@@ -108,9 +112,9 @@
 </main>
 </main>
 
-<script type="text/javascript" src="js/api.js"></script>
 <script type="text/javascript" src="js/utilities.js"></script>
-<script type="text/javascript"src="js/events.js"></script>
+<script type="text/javascript" src="js/api.js"></script>
+<script type="text/javascript" src="js/events.js"></script>
 
 </body>
 </html>

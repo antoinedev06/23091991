@@ -19,35 +19,27 @@ function findCityWithQuery(query) {
     });   
 }
 
-
-function displayCities() {
+// fonction appelé dans le ajax qui gère l'affichage
+function displayCities(response) {
     console.log(response);
+
+    // je vide la list à chaque foisavant de append
+    $('#data_list').empty();
+
+    // je veux pas pluis de 5 propositions
+    var len = response.cities.length;
+    if (len > 6) {
+        len = 6
+    }
+
+    //je boucle et j'affiche les propositions ds la liste 
+    for (var i = 0; i < len ; i++) {
+        $('#data_list').append('<li data-cityId="'+response.cities[i].id+'">'+response.cities[i].name+'</li>');
+    }
+    
 }
 
 
-/*
-**** On a pas encore besoin de ça ****
-
-
-    function displayCity(query, textStatus, jqXHR) {
-    console.log("HTTP Request Succeeded: " + jqXHR.status);
-    
-    $('#search').get(query);
-    
-    if(query != undefined) {
-        $('#data_list').text(findCityWithQuery(query));
-    } else  { "Votre saisie est invalide!";
-    }
-    //gestion des suggestions, seulement 5 villes
-    var cast ="";
-    for(var i = 0; i < 5; i++) {
-        cast += query.cast[i].city+', '
-    }
-
-    $('#data_list').text(cast);
-    }
-
-  
 
 function findShowtimesByCity(cityId, movieId, date) {
     $.ajax({
@@ -89,10 +81,6 @@ function findCinemaById(cineId) {
     });   
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6524a92d988223adf2b1f38dfde61328ebbd175c
 
 function displayMovieWithId(id) {
 
@@ -107,13 +95,14 @@ function displayMovieWithId(id) {
         "X-API-Key": "nce8u3Rq5yNq0jL9FjpmxZ8jWCzv9xvw",
     },
     })
-    .done(function(response, textStatus, jqXHR) {
-        console.log(response);
-    })
+    .done(displayMovieDetails)
     .fail(function(jqXHR, textStatus, errorThrown) {
         console.log("HTTP Request Failed");
     });
 
 }
 
-*/
+
+function displayMovieDetails(reponse) {
+    console.log(response);
+}

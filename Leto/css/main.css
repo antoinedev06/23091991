@@ -51,15 +51,18 @@ header
 	left: 10px;
 }
 
+#nav2
+{position: absolute;
+	top: 2px;
+	left: 5px;
+}
 .far
 {
 	font-size: 4.5em;
 	color: black;
 	
 	padding: 15px;
-	position: absolute;
-	top: 2px;
-	left: 5px;
+	
 }
 .iframe-container
 {
@@ -121,8 +124,7 @@ p
  {
  	text-decoration: none;
  	color: black;
- 	margin: 0 auto;
- 	width: 60%;
+ 	
 
  }
 form
@@ -139,12 +141,7 @@ input
 {
 	background-color: white !important;
 }
-form input
-{
-	position: absolute;
- 	top: -10px;
- 	left: 90px;
-}
+
 .search
  {
  	display: block;
@@ -156,7 +153,28 @@ form input
  	background-color: white;
  	
  }
+#data_list
+{
+	width: 50%;
+	margin: 0 auto;
+	padding-left: 0;
+ 	text-align: left;
+ 	background-color: white;
+ 	border: 1px solid black;
+}
 
+#data_list li
+{
+	font-family: Roboto;
+	list-style-type: none;
+	text-align: center;
+}
+
+#data_list li:hover
+{
+	color: white;
+	background-color: #32486f;
+}
 select
 {
 	margin-top: 30px;
@@ -166,20 +184,21 @@ select
 	background-color: white;
 }
 
-ul
+nav ul
 {
-	padding-left: 0;
-
+	
+	margin: 0 auto;
 }
+
 #menu
 {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	width: 100%;
 	background-color: white;
 	color: black;
-	margin-top: 20px;
-	margin: 0 auto;
+	
+	padding-top: 20px;
 }
 
 #header2
@@ -189,7 +208,7 @@ ul
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-position: center;
-	position: relative;
+	
 	height: 220px;
 	margin: 0 auto;
 	
@@ -273,11 +292,13 @@ body{font-size: 2em;}
 	padding: 15px;
 	
 }
- nav ul li
+
+
+ nav ul li a
  {
  	width: 100%;
  	text-align: left;
- 	margin: 0 auto;
+ 	
  }
 .far
 {

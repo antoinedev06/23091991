@@ -19,9 +19,24 @@ function findCityWithQuery(query) {
     });   
 }
 
-
-function displayCities() {
+// fonction appelé dans le ajax qui gère l'affichage
+function displayCities(response) {
     console.log(response);
+
+    // je vide la list à chaque foisavant de append
+    $('#data_list').empty();
+
+    // je veux pas pluis de 5 propositions
+    var len = response.cities.length;
+    if (len > 6) {
+        len = 6
+    }
+
+    //je boucle et j'affiche les propositions ds la liste 
+    for (var i = 0; i < len ; i++) {
+        $('#data_list').append('<li data-cityId="'+response.cities[i].id+'">'+response.cities[i].name+'</li>');
+    }
+    
 }
 
 
@@ -89,10 +104,6 @@ function findCinemaById(cineId) {
     });   
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6524a92d988223adf2b1f38dfde61328ebbd175c
 
 function displayMovieWithId(id) {
 

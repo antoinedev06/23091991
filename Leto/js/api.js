@@ -18,6 +18,7 @@ function findCityWithQuery(query) {
     });   
 }
 
+<<<<<<< HEAD
 var cityChoose = document.getElementById('search');
 
 var cityDisplay = document.querySelector('ul');
@@ -53,6 +54,8 @@ $(function() {
 
 
 
+=======
+>>>>>>> 774ac65933740b414a84b682dac0a8aa3d7e326d
 function findShowtimesByCity(cityId, movieId, date) {
     $.ajax({
     url: "https://api.internationalshowtimes.com/v4/showtimes?city_ids="+cityId+"&movie_id="+movieId+"&time_to="+date,
@@ -72,7 +75,10 @@ function findShowtimesByCity(cityId, movieId, date) {
         console.log("HTTP Request Failed");
     });   
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 774ac65933740b414a84b682dac0a8aa3d7e326d
 function findCinemaById(cineId) {
     $.ajax({
     url: "https://api.internationalshowtimes.com/v4/cinema/"+cityId,
@@ -92,9 +98,13 @@ function findCinemaById(cineId) {
         console.log("HTTP Request Failed");
     });   
 }
+<<<<<<< HEAD
 
 function displayMovieWithId(id) {
 
+=======
+function displayMovieWithId(id) {
+>>>>>>> 774ac65933740b414a84b682dac0a8aa3d7e326d
     $.ajax({
     url: "https://api.internationalshowtimes.com/v4/movies/"+id,
     type: "GET",
@@ -112,5 +122,11 @@ function displayMovieWithId(id) {
     .fail(function(jqXHR, textStatus, errorThrown) {
         console.log("HTTP Request Failed");
     });
+<<<<<<< HEAD
 
 }
+=======
+}
+
+findCityWithQuery('tou');
+>>>>>>> 774ac65933740b414a84b682dac0a8aa3d7e326d

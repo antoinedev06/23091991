@@ -1,4 +1,4 @@
-/*function extractUrlParams () {
+function extractUrlParams () {
 	var t = location.search.substring(1).split('&');
 
 	var f = [];
@@ -10,9 +10,6 @@
 	return f;
 }
 
-
-
-
 function dateUsToFrench(date) {
 
 	var month = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
@@ -21,6 +18,9 @@ function dateUsToFrench(date) {
 
 	return newDate;
 }
+
+
+// deuxieme partie
 
 function haveDateNextDay(date, day) {
 	date.setDate(date.getDate() + day);
@@ -33,4 +33,4 @@ function splitSeance(string) {
 	var resultHours = hours[1].split(':');
 	var result = { day: day, hour: resultHours[0]+':'+resultHours[1] };
 	return result;
-}*/
+}

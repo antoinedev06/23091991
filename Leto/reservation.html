@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 
 
 	<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -32,11 +34,12 @@
 	</nav></div>
 
 </div>
-<form>
-	<input type="search" name="search" id="search">
-	<div id="results">
-	</div>
-
+<formid id="auto-suggest" action="#" method="post">
+	<input type="text" name="search" id="search" class="search" name="search" value="" autocomplete="off">
+	<datalist id="data_list">
+      
+  	</datalist>
+       
 	<select>
 		<option selected="selected">Jour</option>
 	</select>
@@ -108,6 +111,6 @@
 <script type="text/javascript" src="js/api.js"></script>
 <script type="text/javascript" src="js/utilities.js"></script>
 <script type="text/javascript"src="js/events.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+
 </body>
 </html>

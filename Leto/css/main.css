@@ -132,7 +132,8 @@ input
 {
 	background-color: white !important;
 }
-#search
+
+.search
  {
  	display: block;
  	margin: 0 auto;

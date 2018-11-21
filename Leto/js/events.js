@@ -6,7 +6,6 @@ function displayMenu(){
 
 
 
-
 $('#nav').on('click', displayMenu);
 $('#nav2').on('click', displayMenu);
 

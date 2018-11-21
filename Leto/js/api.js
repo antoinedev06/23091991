@@ -1,7 +1,5 @@
-
 // cette fonction fait un appel ajax 
 // en fonction d'un mot clef
-
 
 function findCityWithQuery(query) {
     $.ajax({
@@ -51,7 +49,6 @@ function displayCities() {
 
   
 
-
 function findShowtimesByCity(cityId, movieId, date) {
     $.ajax({
     url: "https://api.internationalshowtimes.com/v4/showtimes?city_ids="+cityId+"&movie_id="+movieId+"&time_to="+date,
@@ -92,7 +89,10 @@ function findCinemaById(cineId) {
     });   
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6524a92d988223adf2b1f38dfde61328ebbd175c
 
 function displayMovieWithId(id) {
 
@@ -113,7 +113,6 @@ function displayMovieWithId(id) {
     .fail(function(jqXHR, textStatus, errorThrown) {
         console.log("HTTP Request Failed");
     });
-
 
 }
 

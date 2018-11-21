@@ -7,29 +7,28 @@ $('#nav').on('click', displayMenu);
   $('#menu').toggleClass('hidden');
   $('#nav2').toggleClass('hidden');
 }
-<<<<<<< HEAD
 
 
+var cityChoose = document.getElementById('search');
+var cityDisplay = document.querySelector('ul');
 
-=======
-/*
-$('#search').autocomplete({
-    source : function(requete, reponse){ // les deux arguments représentent les données nécessaires au plugin
-	$.ajax({
-            url : 'http://ws.geonames.org/searchJSON', // on appelle le script JSON
-            dataType : 'json', // on spécifie bien que le type de données est en JSON
-            data : {
-                name_startsWith : $('#search').val() // on donne la chaîne de caractère tapée dans le champ de recherche
-            },
-            
-            success : function(donnee){
-                reponse($.map(donnee.geonames, function(objet){
-                    return objet.name + ', ' + objet.countryName; // on retourne cette forme de suggestion
-                }));
-            }
-        });
-    }
-});
+cityChoose.onchange = function() {
+  var city = cityChoose.value;
+  updateDisplay(city);
+};
 
-/*
->>>>>>> 774ac65933740b414a84b682dac0a8aa3d7e326d
+function updateDisplay(city) {
+
+city = city.replace(" ", "");
+city = city.toLowerCase();
+var url = findCityWithQuery(city);
+
+request.onload = function() {
+ cityDisplay.textContent = request.response;
+};
+request.send();
+
+updateDisplay('');
+cityChoose.value = '';
+
+};

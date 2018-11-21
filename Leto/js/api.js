@@ -1,3 +1,4 @@
+
 function findCityWithQuery(query) {
     $.ajax({
     url: "https://api.internationalshowtimes.com/v4/cities?query="+query,
@@ -18,44 +19,28 @@ function findCityWithQuery(query) {
     });   
 }
 
-<<<<<<< HEAD
-var cityChoose = document.getElementById('search');
+    function displayCity(query, textStatus, jqXHR) {
+    console.log("HTTP Request Succeeded: " + jqXHR.status);
+    
+    $('#search').get(query);
+    
+    if(query != undefined) {
+        $('#data_list').text(findCityWithQuery(query));
+    } else  { "Votre saisie est invalide!";
+    }
+    //gestion des suggestions, seulement 5 villes
+    var cast ="";
+    for(var i = 0; i < 5; i++) {
+        cast += query.cast[i].city+', '
+    }
 
-var cityDisplay = document.querySelector('ul');
+    $('#data_list').text(cast);
+    }
 
-cityChoose.onchange = function() {
-  var city = cityChoose.value;
-  updateDisplay(city);
-};
-
-function updateDisplay(city) {
-
-city = city.replace(" ", "");
-city = city.toLowerCase();
-var url = findCityWithQuery(city);
-
-request.onload = function() {
- cityDisplay.textContent = request.response;
-};
-request.send();
-
-updateDisplay('');
-cityChoose.value = '';
-};
-
+  
 /*------------*/
-$(function() {
-   $( "#search").autocomplete({
-         source: findCityWithQuery(),
-         minLength: 2,
-   });
-});
 
 
-
-
-=======
->>>>>>> 774ac65933740b414a84b682dac0a8aa3d7e326d
 function findShowtimesByCity(cityId, movieId, date) {
     $.ajax({
     url: "https://api.internationalshowtimes.com/v4/showtimes?city_ids="+cityId+"&movie_id="+movieId+"&time_to="+date,
@@ -75,10 +60,7 @@ function findShowtimesByCity(cityId, movieId, date) {
         console.log("HTTP Request Failed");
     });   
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 774ac65933740b414a84b682dac0a8aa3d7e326d
 function findCinemaById(cineId) {
     $.ajax({
     url: "https://api.internationalshowtimes.com/v4/cinema/"+cityId,
@@ -98,13 +80,9 @@ function findCinemaById(cineId) {
         console.log("HTTP Request Failed");
     });   
 }
-<<<<<<< HEAD
 
 function displayMovieWithId(id) {
 
-=======
-function displayMovieWithId(id) {
->>>>>>> 774ac65933740b414a84b682dac0a8aa3d7e326d
     $.ajax({
     url: "https://api.internationalshowtimes.com/v4/movies/"+id,
     type: "GET",
@@ -122,11 +100,5 @@ function displayMovieWithId(id) {
     .fail(function(jqXHR, textStatus, errorThrown) {
         console.log("HTTP Request Failed");
     });
-<<<<<<< HEAD
 
 }
-=======
-}
-
-findCityWithQuery('tou');
->>>>>>> 774ac65933740b414a84b682dac0a8aa3d7e326d

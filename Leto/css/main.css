@@ -24,6 +24,11 @@ body
 	font-family: Roboto;
 	margin: 0 auto;
 }
+header
+{
+	position: relative;
+
+}
 .container
 {
 	width: 100%;
@@ -37,23 +42,23 @@ body
 
 .fas
 {
-	font-size: 2em;
+	font-size: 1.5em;
 	color: white;
 	background-color: #e2b852;
 	padding: 15px;
-	position: fixed;
+	position: absolute;
 	top: 10px;
 	left: 10px;
 }
 
 .far
 {
-	font-size: 2.5em;
+	font-size: 4.5em;
 	color: black;
 	
 	padding: 15px;
-	position: fixed;
-	top: 5px;
+	position: absolute;
+	top: 2px;
 	left: 5px;
 }
 .iframe-container
@@ -102,6 +107,7 @@ p
 {
 	margin: 0;
 }
+
  nav ul li
  {
  	list-style-type: none;
@@ -123,6 +129,7 @@ form
 {
 	text-align: center;
 	padding-bottom: 20px;
+	position: relative;
 }
 .maj
 {
@@ -132,18 +139,22 @@ input
 {
 	background-color: white !important;
 }
-
+form input
+{
+	position: absolute;
+ 	top: -10px;
+ 	left: 90px;
+}
 .search
  {
  	display: block;
  	margin: 0 auto;
- 	width: 48%;
+ 	width: 50%;
  	padding-top: 0.5%;
  	padding-bottom: 0.5%;
  	border-radius: 8px;
  	background-color: white;
- 	text-align: center;	
- 	margin-top: -9px;
+ 	
  }
 
 select
@@ -178,6 +189,7 @@ ul
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-position: center;
+	position: relative;
 	height: 220px;
 	margin: 0 auto;
 	
@@ -248,39 +260,30 @@ body{font-size: 2em;}
 {
 	font-size: 1em;
 }
-.container {width: 60%;}
+.container {width: 42%;}
 #header2
 {
-	height: 500px;
-}
-#search
-{
-	margin-top: -19px;
+	height: 350px;
 }
 .fas
 {
-	font-size: 2em;
+	font-size: 1em;
 	color: white;
 	background-color: #e2b852;
 	padding: 15px;
-	position: fixed;
-	top: 10px;
-	left: 318px;
+	
 }
  nav ul li
  {
- 	width: 60%;
+ 	width: 100%;
  	text-align: left;
  	margin: 0 auto;
  }
 .far
 {
-	font-size: 4em;
+	font-size: 2em;
 	color: black;
-	
 	padding: 15px;
-	position: fixed;
-	top: 0px;
-	left: 300px;
 }
+
 }

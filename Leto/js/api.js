@@ -1,3 +1,5 @@
+// cette fonction fait un appel ajax 
+// en fonction d'un mot clef
 
 function findCityWithQuery(query) {
     $.ajax({
@@ -11,13 +13,21 @@ function findCityWithQuery(query) {
         "X-API-Key": "nce8u3Rq5yNq0jL9FjpmxZ8jWCzv9xvw",
     },
     })
-    .done(function(response, textStatus, jqXHR) {
-        console.log(response);
-    })
+    .done(displayCities)
     .fail(function(jqXHR, textStatus, errorThrown) {
         console.log("HTTP Request Failed");
     });   
 }
+
+
+function displayCities() {
+    console.log(response);
+}
+
+
+/*
+**** On a pas encore besoin de ça ****
+
 
     function displayCity(query, textStatus, jqXHR) {
     console.log("HTTP Request Succeeded: " + jqXHR.status);
@@ -39,6 +49,7 @@ function findCityWithQuery(query) {
 
   
 /*------------*/
+
 
 
 function findShowtimesByCity(cityId, movieId, date) {
@@ -81,6 +92,7 @@ function findCinemaById(cineId) {
     });   
 }
 
+
 function displayMovieWithId(id) {
 
     $.ajax({
@@ -102,3 +114,6 @@ function displayMovieWithId(id) {
     });
 
 }
+
+*/
+

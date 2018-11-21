@@ -19,6 +19,7 @@ function findCityWithQuery(query) {
     });   
 }
 
+
 function displayCities() {
     console.log(response);
 }
@@ -26,6 +27,30 @@ function displayCities() {
 
 /*
 **** On a pas encore besoin de ça ****
+
+
+    function displayCity(query, textStatus, jqXHR) {
+    console.log("HTTP Request Succeeded: " + jqXHR.status);
+    
+    $('#search').get(query);
+    
+    if(query != undefined) {
+        $('#data_list').text(findCityWithQuery(query));
+    } else  { "Votre saisie est invalide!";
+    }
+    //gestion des suggestions, seulement 5 villes
+    var cast ="";
+    for(var i = 0; i < 5; i++) {
+        cast += query.cast[i].city+', '
+    }
+
+    $('#data_list').text(cast);
+    }
+
+  
+/*------------*/
+
+
 
 function findShowtimesByCity(cityId, movieId, date) {
     $.ajax({
@@ -67,7 +92,9 @@ function findCinemaById(cineId) {
     });   
 }
 
+
 function displayMovieWithId(id) {
+
     $.ajax({
     url: "https://api.internationalshowtimes.com/v4/movies/"+id,
     type: "GET",
@@ -89,3 +116,4 @@ function displayMovieWithId(id) {
 }
 
 */
+

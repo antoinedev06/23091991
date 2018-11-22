@@ -36,7 +36,11 @@ function onChangeInputVal(e) {
 
 
 function onClickRecupCity() {
-
+    var cityId = $(this).data('cityid');
+    console.log(cityId);
+    findShowtimesByCity(cityId, 49575, '2018-12-31');
+    $('#search').val('');
+    $('#data_list').addClass('hidden');
 }
 
 displayMovieWithId(49575);

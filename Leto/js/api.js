@@ -43,7 +43,7 @@ function displayCities(response) {
 
 function findShowtimesByCity(cityId, movieId, date) {
     $.ajax({
-    url: "https://api.internationalshowtimes.com/v4/showtimes?city_ids="+cityId+"&movie_id="+movieId+"&time_to="+date,
+    url: "https://api.internationalshowtimes.com/v4/showtimes?city_ids="+cityId+"&movie_id="+movieId+"&distance=25&countries=FR&time_to="+date,
     type: "GET",
     datatype: "json",
     data: {
@@ -103,6 +103,7 @@ function displayMovieWithId(id) {
 }
 
 
-function displayMovieDetails(reponse) {
+function displayMovieDetails(response) {
     console.log(response);
 }
+

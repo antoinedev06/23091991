@@ -1,3 +1,18 @@
+// api key movie db
+//2ee2c5b569240ea2a2a879dd9c8a822c
+
+const API_KEY_MD = '2ee2c5b569240ea2a2a879dd9c8a822c';
+
+function findMovieWithMbId(movieId) {
+
+    $.getJSON('https://api.themoviedb.org/3/movie/'+movieId+'?&api_key='+API_KEY_MD, displayDetailsMovieDB);
+
+}
+
+function displayDetailsMovieDB(response) {
+    console.log(response);
+}
+
 // cette fonction fait un appel ajax 
 // en fonction d'un mot clef
 
@@ -107,3 +122,4 @@ function displayMovieDetails(response) {
     console.log(response);
 }
 
+findMovieWithMbId(502897);

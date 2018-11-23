@@ -9,18 +9,47 @@ function displayMenu(){
 $('#nav').on('click', displayMenu);
 $('#nav2').on('click', displayMenu);
 
+var date = new Date();
 
-function displayHours(){
-  $('#hours').toggleClass('hidden');
+function automatiseCalendar() {
+    var date = new Date();
+
+    var month = date.getMonth();
+    var day = date.getDay();
+    var dateDay = date.getDate();
+    var year = date.getFullYear();
+
+    if (month < 10) {
+        month = '0'+month;
+    }
+
+    if (dateDay < 10) {
+        dateDay = '0'+day;
+    }
+
+    var days = ['DIM','LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM'];
+    var months = ['jan','fev', 'mar', 'avr', 'mai', 'jui', 'jui', 'aou', 'sep', 'oct', 'nov','dec'];
+
+    $('.calendar').empty();
+
+    $('.calendar').append('<li data-date="'+year+'/'+month+'/'+dateDay+'" id="day1">'+days[day]+'<br>'+months[month]+'<br>'+dateDay+'</li>');
+
+
+    for (var i = 2; i < 8; i++) {
+
+        date.setDate(date.getDate() + 1);
+        var day = date.getDay();
+        var dateDay = date.getDate();
+        var month = date.getMonth();
+        var day = date.getDay();
+        
+
+        $('.calendar').append('<li data-date="'+year+'/'+month+'/'+dateDay+'" id="day1">'+days[day]+'<br>'+months[month]+'<br>'+dateDay+'</li>');
+
+    }
+
 }
 
-$('#day1').on('click', displayHours);
-$('#day2').on('click', displayHours);
-$('#day3').on('click', displayHours);
-$('#day4').on('click', displayHours);
-$('#day5').on('click', displayHours);
-$('#day6').on('click', displayHours);
-$('#day7').on('click', displayHours);
 // fonction qui se déclenche au click
 // la list #data_list a une class hiddent au début
 
@@ -52,8 +81,11 @@ function onClickRecupCity() {
     $('#data_list').addClass('hidden');
 }
 
-displayMovieWithId(52340);
 
+//actions
+
+displayMovieWithId(52340);
+automatiseCalendar();
 // le listener sur la barre de recherche 
 // le meilleur event c'est keyup 
 $('#search').on('keyup', onChangeInputVal);

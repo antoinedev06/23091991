@@ -47,12 +47,12 @@ function onChangeInputVal(e) {
 function onClickRecupCity() {
     var cityId = $(this).data('cityid');
     console.log(cityId);
-    findShowtimesByCity(cityId, 49575, '2019-12-31');
+    findShowtimesByCity(cityId, 52340, '2019-12-31');
     $('#search').val('');
     $('#data_list').addClass('hidden');
 }
 
-displayMovieWithId(49575);
+displayMovieWithId(52340);
 
 // le listener sur la barre de recherche 
 // le meilleur event c'est keyup 

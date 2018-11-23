@@ -1,18 +1,3 @@
-// api key movie db
-//2ee2c5b569240ea2a2a879dd9c8a822c
-
-const API_KEY_MD = '2ee2c5b569240ea2a2a879dd9c8a822c';
-
-function findMovieWithMbId(movieId) {
-
-    $.getJSON('https://api.themoviedb.org/3/movie/'+movieId+'?&api_key='+API_KEY_MD, displayDetailsMovieDB);
-
-}
-
-function displayDetailsMovieDB(response) {
-    console.log(response);
-}
-
 // cette fonction fait un appel ajax 
 // en fonction d'un mot clef
 
@@ -68,12 +53,52 @@ function findShowtimesByCity(cityId, movieId, date) {
         "X-API-Key": "nce8u3Rq5yNq0jL9FjpmxZ8jWCzv9xvw",
     },
     })
-    .done(function(response, textStatus, jqXHR) {
-        console.log(response);
-    })
+    .done(displayShowtimes)
     .fail(function(jqXHR, textStatus, errorThrown) {
         console.log("HTTP Request Failed");
     });   
+}
+
+function displayShowtimes(data) {
+    var cinema = [];
+
+    for (var i = 0; i < data.showtimes.length; i++) {
+        
+        var seance = splitSeance(data.showtimes[i].start_at); 
+
+        if(i == 0) {
+            cinema.push({
+                        cineId :  data.showtimes[i].cinema_id,
+                        show : {
+                            sc: [seance],
+                            url: [data.showtimes[i].booking_link]
+                        }
+                    });
+        } 
+
+        if (i > 0) {
+            var test = true;
+            for (var j = 0; j < cinema.length; j ++) {
+                if (cinema[j].cineId == data.showtimes[i].cinema_id) {
+                    cinema[j].show.sc.push(seance);
+                    cinema[j].show.url.push(data.showtimes[i].booking_link);
+                    test = false;
+                }
+                    
+            }
+            if (test) {
+                cinema.push({
+                    cineId :  data.showtimes[i].cinema_id,
+                    show : {
+                            sc: [seance],
+                            url: [data.showtimes[i].booking_link]
+                            }
+                    });
+            }
+
+        }
+    }
+     console.log('cine', cinema);   
 }
 
 function findCinemaById(cineId) {
@@ -121,5 +146,3 @@ function displayMovieWithId(id) {
 function displayMovieDetails(response) {
     console.log(response);
 }
-
-findMovieWithMbId(502897);

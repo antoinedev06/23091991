@@ -10,6 +10,17 @@ $('#nav').on('click', displayMenu);
 $('#nav2').on('click', displayMenu);
 
 
+function displayHours(){
+  $('#hours').toggleClass('hidden');
+}
+
+$('#day1').on('click', displayHours);
+$('#day2').on('click', displayHours);
+$('#day3').on('click', displayHours);
+$('#day4').on('click', displayHours);
+$('#day5').on('click', displayHours);
+$('#day6').on('click', displayHours);
+$('#day7').on('click', displayHours);
 // fonction qui se déclenche au click
 // la list #data_list a une class hiddent au début
 

@@ -58,3 +58,43 @@ displayMovieWithId(52340);
 // le meilleur event c'est keyup 
 $('#search').on('keyup', onChangeInputVal);
 $(document).on('click', '#data_list li',onClickRecupCity);
+
+
+function onChangeSelectVal(e) {
+    
+    var query2 = $('#day').val();
+    var query3 = $('#heure').val();
+    console.log(query2);
+
+    if(query1 != null) {
+        $('#hours').removeClass('hidden');
+        findShowtimesByCity(query1);
+    }
+    if (query2 != null) 
+    {
+        $('#hours').removeClass('hidden');
+        findShowtimesByCity(query1);
+    }
+     else {
+        $('#hours').addClass('hidden');
+    }
+ 
+}
+
+function onClickRecupShowTime()
+{
+    var ShowTimes = $(this).data('showtimes');
+    console.log(ShowTimes);
+    displayShowtimes(ShowTimes, 52340, '2019-12-31');
+    $('#day').val();
+    $('#heure').val();
+    $('#hours').addClass('hidden');
+    
+
+
+}
+
+
+displayMovieWithId(52340);
+$('#day').on('cick', onClickRecupShowTime);
+$('#heure').on('click', onClickRecupShowTime)

@@ -121,6 +121,24 @@ function findCinemaById(cineId) {
     });   
 }
 
+function displayCinemaInfo(response)
+{
+    var cineInfo = [];
+    for (var i = 0; i < cineInfo.cinema_Id.length; i ++)
+    {
+        var info = findCinemaById(response);
+
+        if (info) {
+                cinema.push({
+                    cineId :  data.showtimes[i].cinema_id,
+                    show : {
+                            sc: [cinema_Id],
+                            url: [data.showtimes[i].booking_link]
+                            }
+                    });
+            }
+    };
+}
 
 function displayMovieWithId(id) {
 

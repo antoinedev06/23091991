@@ -66,14 +66,15 @@ function onChangeSelectVal(e) {
     var query3 = $('#heure').val();
     console.log(query2);
 
-    if(query1 != null) {
+    if(query2 != null) {
         $('#hours').removeClass('hidden');
         findShowtimesByCity(query1);
     }
-    if (query2 != null) 
+    if (query3 != null) 
     {
         $('#hours').removeClass('hidden');
         findShowtimesByCity(query1);
+
     }
      else {
         $('#hours').addClass('hidden');
@@ -89,7 +90,6 @@ function onClickRecupShowTime()
     $('#day').val();
     $('#heure').val();
     $('#hours').addClass('hidden');
-    
 
 
 }
@@ -97,4 +97,4 @@ function onClickRecupShowTime()
 
 displayMovieWithId(52340);
 $('#day').on('cick', onClickRecupShowTime);
-$('#heure').on('click', onClickRecupShowTime)
+$('#heure').on('click', onClickRecupShowTime);

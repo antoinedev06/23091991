@@ -34,3 +34,43 @@ function splitSeance(string) {
 	var result = { day: day, hour: resultHours[0]+':'+resultHours[1] };
 	return result;
 }
+
+function automatiseCalendar(j) {
+    var date = new Date();
+
+    var month = date.getMonth();
+    var monthNum = date.getMonth()+1;
+    var day = date.getDay();
+    var dateDay = date.getDate();
+    var year = date.getFullYear();
+
+    if (month < 10) {
+        month = '0'+month;
+    }
+
+    if (dateDay < 10) {
+        dateDay = '0'+day;
+    }
+
+    var days = ['DIM','LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM'];
+    var months = ['jan','fev', 'mar', 'avr', 'mai', 'jui', 'jui', 'aou', 'sep', 'oct', 'nov','dec'];
+
+    $('.resa-'+j+' .calendar').empty();
+
+    $('.resa-'+j+' .calendar').append('<li class="date-possible" data-date="'+year+'-'+monthNum+'-'+dateDay+'" id="day1">'+days[day]+'<br>'+months[month]+'<br>'+dateDay+'</li>');
+
+    for (var i = 2; i < 8; i++) {
+
+        date.setDate(date.getDate() + 1);
+        var day = date.getDay();
+        var dateDay = date.getDate();
+        var month = date.getMonth();
+        var monthNum = date.getMonth()+1;
+        var day = date.getDay();
+        
+
+        $('.resa-'+j+' .calendar').append('<li data-date="'+year+'-'+monthNum+'-'+dateDay+'" id="day1">'+days[day]+'<br>'+months[month]+'<br>'+dateDay+'</li>');
+
+    }
+
+}

@@ -1,3 +1,6 @@
+var cityId = "";
+
+
 // fonction affichage menu 
 
 function displayMenu(){
@@ -9,12 +12,11 @@ function displayMenu(){
 $('#nav').on('click', displayMenu);
 $('#nav2').on('click', displayMenu);
 
-var date = new Date();
 
-function automatiseCalendar() {
+function automatiseSelect() {
     var date = new Date();
-
     var month = date.getMonth();
+    var monthNum = date.getMonth()+1;
     var day = date.getDay();
     var dateDay = date.getDate();
     var year = date.getFullYear();
@@ -29,10 +31,7 @@ function automatiseCalendar() {
 
     var days = ['DIM','LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM'];
     var months = ['jan','fev', 'mar', 'avr', 'mai', 'jui', 'jui', 'aou', 'sep', 'oct', 'nov','dec'];
-
-    $('.calendar').empty();
-
-    $('.calendar').append('<li data-date="'+year+'/'+month+'/'+dateDay+'" id="day1">'+days[day]+'<br>'+months[month]+'<br>'+dateDay+'</li>');
+    $('#selectDay').append('<option data-date="'+year+'-'+monthNum+'-'+dateDay+'" selected="selected">'+year+'-'+monthNum+'-'+dateDay+'</option>')
 
 
     for (var i = 2; i < 8; i++) {
@@ -41,14 +40,15 @@ function automatiseCalendar() {
         var day = date.getDay();
         var dateDay = date.getDate();
         var month = date.getMonth();
+        var monthNum = date.getMonth()+1;
         var day = date.getDay();
-        
 
-        $('.calendar').append('<li data-date="'+year+'/'+month+'/'+dateDay+'" id="day1">'+days[day]+'<br>'+months[month]+'<br>'+dateDay+'</li>');
+        $('#selectDay').append('<option data-date="'+year+'-'+monthNum+'-'+dateDay+'">'+year+'-'+monthNum+'-'+dateDay+'</option>')
 
     }
-
 }
+
+
 
 // fonction qui se déclenche au click
 // la list #data_list a une class hiddent au début
@@ -74,19 +74,30 @@ function onChangeInputVal(e) {
 
 
 function onClickRecupCity() {
-    var cityId = $(this).data('cityid');
+    cityId = $(this).data('cityid');
     console.log(cityId);
-    findShowtimesByCity(cityId, 52340, '2019-12-31');
+    var dateCity = new Date();
+    var completeDC = dateCity.getFullYear()+'-'+dateCity.getMonth()+'-'+dateCity.getDate();
+    console.log(completeDC);
+    findShowtimesByCity(cityId, 52340, completeDC+'T00:00', completeDC+'T23:59');
     $('#search').val('');
     $('#data_list').addClass('hidden');
+}
+
+function onClickRecupDate() {
+    var dateClick = $(this).data('date');
+    console.log(dateClick);
+    //findShowtimesByCity(cityId, 52340, dateClick+'T00:01', dateClick+'T23:59');
 }
 
 
 //actions
 
-displayMovieWithId(52340);
-automatiseCalendar();
+
+automatiseSelect();
 // le listener sur la barre de recherche 
 // le meilleur event c'est keyup 
 $('#search').on('keyup', onChangeInputVal);
 $(document).on('click', '#data_list li',onClickRecupCity);
+
+$(document).on('click', '.calendar li',onClickRecupDate);

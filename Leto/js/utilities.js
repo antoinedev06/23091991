@@ -35,8 +35,8 @@ function splitSeance(string) {
 	return result;
 }
 
-function automatiseCalendar(j) {
-    var date = new Date();
+function automatiseCalendar(j, cineId) {
+    var date = new Date($('#selectDay').val());
 
     var month = date.getMonth();
     var monthNum = date.getMonth()+1;
@@ -57,7 +57,7 @@ function automatiseCalendar(j) {
 
     $('.resa-'+j+' .calendar').empty();
 
-    $('.resa-'+j+' .calendar').append('<li class="date-possible" data-date="'+year+'-'+monthNum+'-'+dateDay+'" id="day1">'+days[day]+'<br>'+months[month]+'<br>'+dateDay+'</li>');
+    $('.resa-'+j+' .calendar').append('<li class="data-selected" data-resa="'+j+'" data-cineId="'+cineId+'" data-date="'+year+'-'+monthNum+'-'+dateDay+'" id="day1">'+days[day]+'<br>'+months[month]+'<br>'+dateDay+'</li>');
 
     for (var i = 2; i < 8; i++) {
 
@@ -69,7 +69,7 @@ function automatiseCalendar(j) {
         var day = date.getDay();
         
 
-        $('.resa-'+j+' .calendar').append('<li data-date="'+year+'-'+monthNum+'-'+dateDay+'" id="day1">'+days[day]+'<br>'+months[month]+'<br>'+dateDay+'</li>');
+        $('.resa-'+j+' .calendar').append('<li class="" data-resa="'+j+'" data-cineId="'+cineId+'" data-date="'+year+'-'+monthNum+'-'+dateDay+'" id="day'+i+'">'+days[day]+'<br>'+months[month]+'<br>'+dateDay+'</li>');
 
     }
 

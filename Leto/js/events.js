@@ -84,11 +84,7 @@ function onClickRecupCity() {
     $('#data_list').addClass('hidden');
 }
 
-function onClickRecupDate() {
-    var dateClick = $(this).data('date');
-    console.log(dateClick);
-    //findShowtimesByCity(cityId, 52340, dateClick+'T00:01', dateClick+'T23:59');
-}
+
 
 
 //actions
@@ -100,4 +96,4 @@ automatiseSelect();
 $('#search').on('keyup', onChangeInputVal);
 $(document).on('click', '#data_list li',onClickRecupCity);
 
-$(document).on('click', '.calendar li',onClickRecupDate);
+//$(document).on('click', '.calendar li',onClickRecupDate);

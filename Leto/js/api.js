@@ -61,6 +61,7 @@ function findShowtimesByCity(cityId, movieId, dateFrom, dateTo) {
 }
 
 function displayShowtimes(data) {
+    console.log(data);
     var cinema = [];
 
     for (var i = 0; i < data.showtimes.length; i++) {
@@ -123,22 +124,43 @@ function createCalendar(cinema) {
     console.log(resa.length);
 
     for (var k = 0; k < resa.length; k++) {
-        automatiseCalendar(k);
+        automatiseCalendar(k, cinema[k].cineId);
+
         for (var j = 0; j < cinema[k].show.sc.length; j ++ ) {
             $('.resa-'+k+' .hours-detail').empty();
-            console.log(cinema[k].show.url[j]);
+            
             $('.resa-'+k+' .hours-detail').append('<li><a href="'+cinema[k].show.url[j]+'">'+cinema[k].show.sc[j].hour+'</a></li>')
         }
+     
+        $(document).on('click', '.resa-'+k+' .calendar li',onClickRecupDate);
+        
+    }
+
+    for (var m = 0; m < cinema.length; m++) {
+        findCinemaById(cinema[m].cineId);
     }
 
 
 }
 
+function onClickRecupDate() {
+    var dateClick = $(this).data('date');
+    console.log('d',dateClick);
+   var k = $(this).data('resa');
+   console.log('k', k);
+   var cineId = $(this).data('cineid');
+   console.log(cineId);
+    $('.resa-'+k+' .calendar li').removeClass('data-selected');
+    $(this).addClass('data-selected');
+    //findShowtimesByCity(cityId, 52340, dateClick+'T00:01', dateClick+'T23:59');
+}
+
 findShowtimesByCity(23804, 52340, '2018-11-26T00:01', '2018-12-26T23:59')
+//findCinemaById(60431);
 
 function findCinemaById(cineId) {
     $.ajax({
-    url: "https://api.internationalshowtimes.com/v4/cinema/"+cityId,
+    url: "https://api.internationalshowtimes.com/v4/cinemas/"+cineId,
     type: "GET",
     datatype: "json",
     data: {
@@ -148,12 +170,17 @@ function findCinemaById(cineId) {
         "X-API-Key": "nce8u3Rq5yNq0jL9FjpmxZ8jWCzv9xvw",
     },
     })
-    .done(function(response, textStatus, jqXHR) {
-        console.log(response);
-    })
+    .done(displayCinema)
     .fail(function(jqXHR, textStatus, errorThrown) {
         console.log("HTTP Request Failed");
     });   
+}
+
+function displayCinema(response) {
+    console.log(response);
+    console.log($('#'+response.id+' h2'));
+    $('#'+response.id+' h2').html(response.cinema.name);
+    $('#'+response.id+' p').html(response.cinema.location.address.display_text);
 }
 
 

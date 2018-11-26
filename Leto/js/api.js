@@ -107,6 +107,7 @@ function displayShowtimes(data) {
 
 function createCalendar(cinema) {
     $('main').empty();
+    var div = $('<div>');
 
     for (var i = 0; i < cinema.length; i++) {
         var cine = $('<section class="resa resa-'+i+'">');
@@ -117,8 +118,10 @@ function createCalendar(cinema) {
                 .append('<article class="" id="hours"><p class="choix">Sélectionnez une heure pour acheter votre ticket</h4><p><strong>Séances pour Leto</strong></p><ul class="hours-detail"></ul></article>'));
         
 
-        $('main').append(cine);
+        div.append(cine);
     }
+
+    $('main').html(div);
 
     var resa = $('.resa');
     console.log(resa.length);
@@ -140,6 +143,7 @@ function createCalendar(cinema) {
         findCinemaById(cinema[m].cineId);
     }
 
+    $('#60431 h2').html('la');
 
 }
 
@@ -152,10 +156,12 @@ function onClickRecupDate() {
    console.log(cineId);
     $('.resa-'+k+' .calendar li').removeClass('data-selected');
     $(this).addClass('data-selected');
-    //findShowtimesByCity(cityId, 52340, dateClick+'T00:01', dateClick+'T23:59');
+    findShowtimesByCinema(cineId, 52340, dateClick)
 }
 
-findShowtimesByCity(23804, 52340, '2018-11-26T00:01', '2018-12-26T23:59')
+//paris 22667
+//lyon  23804
+findShowtimesByCity(23804, 52340, '2018-11-26T00:01', '2018-12-26T23:59');
 //findCinemaById(60431);
 
 function findCinemaById(cineId) {
@@ -178,11 +184,36 @@ function findCinemaById(cineId) {
 
 function displayCinema(response) {
     console.log(response);
-    console.log($('#'+response.id+' h2'));
-    $('#'+response.id+' h2').html(response.cinema.name);
-    $('#'+response.id+' p').html(response.cinema.location.address.display_text);
+    
+    $('#'+response.cinema.id+' h2').html(response.cinema.name);
+    $('#'+response.cinema.id+' p').html(response.cinema.location.address.display_text);
 }
 
+
+function findShowtimesByCinema(cinemaId, movieId, date) {
+    $.ajax({
+    url: "https://api.internationalshowtimes.com/v4/showtimes?movie_id="+movieId+"&cinema_id="+cinemaId+"&time_from="+date+"T00:01&time_to="+date+"T23:59",
+    type: "GET",
+    datatype: "json",
+    data: {
+        "countries": "FR",
+    },
+    headers: {
+        "X-API-Key": "nce8u3Rq5yNq0jL9FjpmxZ8jWCzv9xvw",
+    },
+    })
+    .done(displayByCinema)
+    .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log("HTTP Request Failed");
+    }); 
+}
+
+
+function displayByCinema(response) {
+    console.log('test',response);
+}
+
+findShowtimesByCinema(60431,52340, '2018-11-29');
 
 function displayMovieWithId(id) {
 

@@ -109,6 +109,12 @@ function createCalendar(cinema) {
     $('main').empty();
     var div = $('<div>');
 
+
+    if(cinema.length == 0) {
+        $('main').html('<p>aucune séance trouvée</p>');
+        return;
+    }
+
     for (var i = 0; i < cinema.length; i++) {
         var cine = $('<section class="resa resa-'+i+'">');
         cine.append($('<section class="gris">')
@@ -143,7 +149,7 @@ function createCalendar(cinema) {
         findCinemaById(cinema[m].cineId);
     }
 
-    $('#60431 h2').html('la');
+    
 
 }
 
@@ -156,7 +162,7 @@ function onClickRecupDate() {
    console.log(cineId);
     $('.resa-'+k+' .calendar li').removeClass('data-selected');
     $(this).addClass('data-selected');
-    findShowtimesByCinema(cineId, 52340, dateClick)
+    findShowtimesByCinema(cineId, 52340, dateClick, k)
 }
 
 //paris 22667
@@ -190,7 +196,7 @@ function displayCinema(response) {
 }
 
 
-function findShowtimesByCinema(cinemaId, movieId, date) {
+function findShowtimesByCinema(cinemaId, movieId, date, k) {
     $.ajax({
     url: "https://api.internationalshowtimes.com/v4/showtimes?movie_id="+movieId+"&cinema_id="+cinemaId+"&time_from="+date+"T00:01&time_to="+date+"T23:59",
     type: "GET",
@@ -202,18 +208,31 @@ function findShowtimesByCinema(cinemaId, movieId, date) {
         "X-API-Key": "nce8u3Rq5yNq0jL9FjpmxZ8jWCzv9xvw",
     },
     })
-    .done(displayByCinema)
+    .done(function(response) { displayByCinema(response, k) })
     .fail(function(jqXHR, textStatus, errorThrown) {
         console.log("HTTP Request Failed");
     }); 
 }
 
 
-function displayByCinema(response) {
+function displayByCinema(response, k) {
     console.log('test',response);
+    console.log('k', k);
+    $('.resa-'+k+' .hours-detail').empty();
+
+    if (response.showtimes.length == 0) {
+       $('.resa-'+k+' .hours-detail').append('<p>Il n\'y a pas de seance</p>');
+       return; 
+    }
+
+    for (var i = 0; i < response.showtimes.length; i ++) {
+        var seance = splitSeance(response.showtimes[i].start_at);
+        console.log(seance.hour);
+        $('.resa-'+k+' .hours-detail').append('<li><a href="'+response.showtimes[i].booking_link+'">'+seance.hour+'</a></li>');
+    }
 }
 
-findShowtimesByCinema(60431,52340, '2018-11-29');
+//findShowtimesByCinema(60431,52340, '2018-11-29', 0);
 
 function displayMovieWithId(id) {
 

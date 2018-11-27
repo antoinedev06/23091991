@@ -1,4 +1,4 @@
-var cityId = "";
+var cityId = 22667;
 
 
 // fonction affichage menu 
@@ -76,14 +76,28 @@ function onChangeInputVal(e) {
 function onClickRecupCity() {
     cityId = $(this).data('cityid');
     console.log(cityId);
-    var dateCity = new Date();
-    var completeDC = dateCity.getFullYear()+'-'+dateCity.getMonth()+'-'+dateCity.getDate();
+   // var dateCity = new Date();
+   // var completeDC = dateCity.getFullYear()+'-'+dateCity.getMonth()+'-'+dateCity.getDate();
+    var completeDC = $('#selectDay').val();
+    var completeHour = $('#selectHour').val();
     console.log(completeDC);
-    findShowtimesByCity(cityId, 52340, completeDC+'T00:00', completeDC+'T23:59');
+    findShowtimesByCity(cityId, 52340, completeDC+'T'+completeHour, completeDC+'T23:59');
     $('#search').val('');
     $('#data_list').addClass('hidden');
 }
 
+function onChangeRecupCity() {
+    
+    console.log(cityId);
+   // var dateCity = new Date();
+   // var completeDC = dateCity.getFullYear()+'-'+dateCity.getMonth()+'-'+dateCity.getDate();
+    var completeDC = $('#selectDay').val();
+    var completeHour = $('#selectHour').val();
+    console.log(completeDC);
+    findShowtimesByCity(cityId, 52340, completeDC+'T'+completeHour, completeDC+'T23:59');
+    $('#search').val('');
+    $('#data_list').addClass('hidden');
+}
 
 
 
@@ -95,5 +109,7 @@ automatiseSelect();
 // le meilleur event c'est keyup 
 $('#search').on('keyup', onChangeInputVal);
 $(document).on('click', '#data_list li',onClickRecupCity);
+$('#selectDay').on('change', onChangeRecupCity);
+$('#selectHour').on('change', onChangeRecupCity);
 
 //$(document).on('click', '.calendar li',onClickRecupDate);

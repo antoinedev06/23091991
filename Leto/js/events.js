@@ -19,20 +19,20 @@ function automatiseSelect() {
     var dateDay = date.getDate();
     var year = date.getFullYear();
 
-    if (month < 10) {
-        month = '0'+month;
-    }
+    // if (month < 10) {
+    //     month = '0'+month;
+    // }
 
-    if (dateDay < 10) {
-        dateDay = '0'+day;
-    }
+    // if (dateDay < 10) {
+    //     dateDay = '0'+day;
+    // }
 
     var days = ['DIM','LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM'];
     var months = ['jan','fev', 'mar', 'avr', 'mai', 'jui', 'jui', 'aou', 'sep', 'oct', 'nov','dec'];
     $('#selectDay').append('<option data-date="'+year+'-'+monthNum+'-'+dateDay+'" selected="selected">'+year+'-'+monthNum+'-'+dateDay+'</option>')
 
 
-    for (var i = 2; i < 8; i++) {
+    for (var i = 2; i < 30; i++) {
 
         date.setDate(date.getDate() + 1);
         var day = date.getDay();
@@ -73,7 +73,9 @@ function onChangeInputVal(e) {
 
 function onClickRecupCity() {
     cityId = $(this).data('cityid');
+    var cityName = $(this).text();
     console.log(cityId);
+    $('#city').text('Séances pour la ville de : '+cityName);
    // var dateCity = new Date();
    // var completeDC = dateCity.getFullYear()+'-'+dateCity.getMonth()+'-'+dateCity.getDate();
     var completeDC = $('#selectDay').val();
@@ -103,11 +105,21 @@ function onClickDisplayCalendar() {
     $('.resa-'+k+' .exemple').removeClass('hidden');
 }
 
+function start() {
+    $('#city').text('Séances pour la ville de : Paris');
+   // var dateCity = new Date();
+   // var completeDC = dateCity.getFullYear()+'-'+dateCity.getMonth()+'-'+dateCity.getDate();
+    var completeDC = $('#selectDay').val();
+    var completeHour = $('#selectHour').val();
+    console.log(completeDC);
+    findShowtimesByCity(cityId, 52340, completeDC+'T'+completeHour, completeDC+'T23:59');
+}
 
 //actions
 
 
 automatiseSelect();
+start();
 // le listener sur la barre de recherche 
 // le meilleur event c'est keyup 
 $('#search').on('keyup', onChangeInputVal);

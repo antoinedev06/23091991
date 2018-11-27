@@ -111,7 +111,7 @@ function createCalendar(cinema) {
 
 
     if(cinema.length == 0) {
-        $('main').html('<p>aucune séance trouvée</p>');
+        $('main').html('<p style="text-align: center; margin-bottom: 100px;">aucune séance trouvée pour cette date</p>');
         return;
     }
 
@@ -167,7 +167,7 @@ function onClickRecupDate() {
 
 //paris 22667
 //lyon  23804
-findShowtimesByCity(23804, 52340, '2018-11-26T00:01', '2018-12-26T23:59');
+//findShowtimesByCity(23804, 52340, '2018-11-26T00:01', '2018-12-26T23:59');
 //findCinemaById(60431);
 
 function findCinemaById(cineId) {
@@ -221,7 +221,7 @@ function displayByCinema(response, k) {
     $('.resa-'+k+' .hours-detail').empty();
 
     if (response.showtimes.length == 0) {
-       $('.resa-'+k+' .hours-detail').append('<p>Il n\'y a pas de seance</p>');
+       $('.resa-'+k+' .hours-detail').append('<p style="margin-bottom: 50px;">Il n\'y a pas de seance à cette date</p>');
        return; 
     }
 

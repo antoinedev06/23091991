@@ -44,13 +44,13 @@ function automatiseCalendar(j, cineId) {
     var dateDay = date.getDate();
     var year = date.getFullYear();
 
-    if (month < 10) {
-        month = '0'+month;
-    }
+    // if (month < 10) {
+    //     month = '0'+month;
+    // }
 
-    if (dateDay < 10) {
-        dateDay = '0'+day;
-    }
+    // if (dateDay < 10) {
+    //     dateDay = '0'+dateDay;
+    // }
 
     var days = ['DIM','LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM'];
     var months = ['jan','fev', 'mar', 'avr', 'mai', 'jui', 'jui', 'aou', 'sep', 'oct', 'nov','dec'];

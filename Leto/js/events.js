@@ -1,6 +1,5 @@
 var cityId = 22667;
 
-
 // fonction affichage menu 
 
 function displayMenu(){
@@ -11,7 +10,6 @@ function displayMenu(){
 
 $('#nav').on('click', displayMenu);
 $('#nav2').on('click', displayMenu);
-
 
 function automatiseSelect() {
     var date = new Date();

@@ -99,6 +99,11 @@ function onChangeRecupCity() {
     $('#data_list').addClass('hidden');
 }
 
+function onClickDisplayCalendar() {
+    $('.resa .exemple').addClass('hidden');
+    var k = $(this).data('resa');
+    $('.resa-'+k+' .exemple').removeClass('hidden');
+}
 
 
 //actions
@@ -112,4 +117,5 @@ $(document).on('click', '#data_list li',onClickRecupCity);
 $('#selectDay').on('change', onChangeRecupCity);
 $('#selectHour').on('change', onChangeRecupCity);
 
+$(document).on('click', '.resa .desc',onClickDisplayCalendar);
 //$(document).on('click', '.calendar li',onClickRecupDate);

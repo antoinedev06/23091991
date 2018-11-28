@@ -111,15 +111,15 @@ function createCalendar(cinema) {
 
 
     if(cinema.length == 0) {
-        $('main').html('<p>aucune séance trouvée</p>');
+        $('main').html('<p style="text-align: center; margin-bottom: 100px;">aucune séance trouvée pour cette date</p>');
         return;
     }
 
     for (var i = 0; i < cinema.length; i++) {
         var cine = $('<section class="resa resa-'+i+'">');
         cine.append($('<section class="gris">')
-            .append('<article id="'+cinema[i].cineId+'"><div class="cine clearfix"><img src="img/iconugc.png"><h2 class="maj"></h2><p class="maj"></p></div></article>'))
-            .append($('<div class="exemple">')
+            .append('<article class="desc" data-resa="'+i+'" id="'+cinema[i].cineId+'"><div class="cine clearfix"><img src="img/iconugc.png"><h2 class="maj"></h2><p class="maj"></p></div></article>'))
+            .append($('<div class="exemple hidden">')
                 .append('<ul class="calendar"></ul>')
                 .append('<article class="" id="hours"><p class="choix">Sélectionnez une heure pour acheter votre ticket</h4><p><strong>Séances pour Leto</strong></p><ul class="hours-detail"></ul></article>'));
         
@@ -167,7 +167,7 @@ function onClickRecupDate() {
 
 //paris 22667
 //lyon  23804
-findShowtimesByCity(23804, 52340, '2018-11-26T00:01', '2018-12-26T23:59');
+//findShowtimesByCity(23804, 52340, '2018-11-26T00:01', '2018-12-26T23:59');
 //findCinemaById(60431);
 
 function findCinemaById(cineId) {
@@ -221,7 +221,7 @@ function displayByCinema(response, k) {
     $('.resa-'+k+' .hours-detail').empty();
 
     if (response.showtimes.length == 0) {
-       $('.resa-'+k+' .hours-detail').append('<p>Il n\'y a pas de seance</p>');
+       $('.resa-'+k+' .hours-detail').append('<p style="margin-bottom: 50px;">Il n\'y a pas de seance à cette date</p>');
        return; 
     }
 

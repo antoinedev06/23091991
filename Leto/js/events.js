@@ -41,7 +41,14 @@ function automatiseSelect() {
         var monthNum = date.getMonth()+1;
         var day = date.getDay();
 
-        $('#selectDay').append('<option data-date="'+year+'-'+monthNum+'-'+dateDay+'">'+year+'-'+monthNum+'-'+dateDay+'</option>')
+        if (year+'-'+monthNum+'-'+dateDay == "2018-12-3") {
+            $('#selectDay').append('<option selected="selected" data-date="'+year+'-'+monthNum+'-'+dateDay+'">'+year+'-'+monthNum+'-'+dateDay+'</option>')
+
+        } else {
+            $('#selectDay').append('<option data-date="'+year+'-'+monthNum+'-'+dateDay+'">'+year+'-'+monthNum+'-'+dateDay+'</option>')
+
+        }
+
 
     }
 }
@@ -113,6 +120,8 @@ function start() {
     var completeHour = $('#selectHour').val();
     console.log(completeDC);
     findShowtimesByCity(cityId, 52340, completeDC+'T'+completeHour, completeDC+'T23:59');
+   //findShowtimesByCity(cityId, 52340, '2018-12-3T'+completeHour, '2018-12-3T23:59');
+
 }
 
 //actions

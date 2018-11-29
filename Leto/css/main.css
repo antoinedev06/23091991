@@ -373,8 +373,7 @@ nav ul
 
 .navbig
 {
-
-	visibility: hidden;
+	display: none;
 }
 
 
@@ -419,6 +418,8 @@ body{font-size: 2em;}
 {
 	display: flex;
 	flex-direction: row;
+	width: 85%;
+  margin: auto;
 }
 
 #menu
@@ -474,7 +475,8 @@ nav ul
 	width: 100%;
 	margin: 0 auto;
 	padding: 20px;
-	visibility: visible;
+
+	display: block;
 	color: white;
 	background-color: black;
 }

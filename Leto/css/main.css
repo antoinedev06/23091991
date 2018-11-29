@@ -92,9 +92,10 @@ header
 .Synopsis
 {
 	font-size: 1.5em;
-	
-	width: 95%;
-	margin: 20px auto;
+	width: 96%;
+	margin: 10px auto 20px;
+  padding: 20px;
+  box-shadow: -5px 5px 25px black;
 }
 .icons a
 {
@@ -201,7 +202,7 @@ input
 select
 {
 	margin-top: 30px;
-	width: 27%;
+	width: 30%;
 	padding: 0.5%;
 	border-radius: 8px;
 	background-color: white;
@@ -248,7 +249,7 @@ nav ul
 }
 .gris
 {
-	background-color:#edeef2;
+	background-color:white;
 	font-size: 0.8em;
 	margin: 0;
 	width: 90%;
@@ -320,7 +321,7 @@ nav ul
 {
 	
 	width: 100%;
-	background-color: #edeef2;
+	background-color: white;
 	box-shadow: -5px 5px 25px black;
 
 		
@@ -476,7 +477,7 @@ nav ul
 {
 	width: 100%;
 	margin: 0 auto;
-	padding: 20px;
+	padding: 20px 12.5%;
 
 	display: block;
 	color: white;

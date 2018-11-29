@@ -29,7 +29,7 @@ function automatiseSelect() {
 
     var days = ['DIM','LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM'];
     var months = ['jan','fev', 'mar', 'avr', 'mai', 'jui', 'jui', 'aou', 'sep', 'oct', 'nov','dec'];
-    $('#selectDay').append('<option data-date="'+year+'-'+monthNum+'-'+dateDay+'" selected="selected">'+year+'-'+monthNum+'-'+dateDay+'</option>')
+    $('#selectDay').append('<option data-date="'+year+'-'+monthNum+'-'+dateDay+'" selected="selected">'+dateDay+' '+months[month]+' '+year+'</option>')
 
 
     for (var i = 2; i < 30; i++) {
@@ -42,10 +42,10 @@ function automatiseSelect() {
         var day = date.getDay();
 
         if (year+'-'+monthNum+'-'+dateDay == "2018-12-3") {
-            $('#selectDay').append('<option selected="selected" data-date="'+year+'-'+monthNum+'-'+dateDay+'">'+year+'-'+monthNum+'-'+dateDay+'</option>')
+            $('#selectDay').append('<option selected="selected" data-date="'+year+'-'+monthNum+'-'+dateDay+'">'+dateDay+' '+months[month]+' '+year+'</option>')
 
         } else {
-            $('#selectDay').append('<option data-date="'+year+'-'+monthNum+'-'+dateDay+'">'+year+'-'+monthNum+'-'+dateDay+'</option>')
+            $('#selectDay').append('<option data-date="'+year+'-'+monthNum+'-'+dateDay+'">'+dateDay+' '+months[month]+' '+year+'</option>')
 
         }
 
@@ -136,5 +136,5 @@ $(document).on('click', '#data_list li',onClickRecupCity);
 $('#selectDay').on('change', onChangeRecupCity);
 $('#selectHour').on('change', onChangeRecupCity);
 
-$(document).on('click', '.resa .desc',onClickDisplayCalendar);
+//$(document).on('click', '.resa .desc',onClickDisplayCalendar);
 //$(document).on('click', '.calendar li',onClickRecupDate);

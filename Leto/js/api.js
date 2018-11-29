@@ -119,7 +119,7 @@ function createCalendar(cinema) {
         var cine = $('<section class="resa resa-'+i+'">');
         cine.append($('<section class="gris">')
             .append('<article class="desc" data-resa="'+i+'" id="'+cinema[i].cineId+'"><div class="cine clearfix"><img src="img/iconugc.png"><h2 class="maj"></h2><p class="maj"></p></div></article>'))
-            .append($('<div class="exemple hidden">')
+            .append($('<div class="exemple">')
                 .append('<ul class="calendar"></ul>')
                 .append('<article class="" id="hours"><p class="choix">Sélectionnez une heure pour acheter votre ticket</h4><p><strong>Séances pour Leto</strong></p><ul class="hours-detail"></ul></article>'));
         

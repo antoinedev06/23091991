@@ -108,7 +108,7 @@ header
 	width: 8%;
 	color: silver;
 	display: inline-block;
-	margin-top: 20px;
+	
 
 }
 .icons a:first-child img
@@ -228,7 +228,7 @@ nav ul
 {
 	display: block;
 	background: no-repeat center/100% url("../img/affiche.jpg");
-	height: 450px;
+	height:700px;
 	background-position:center;
 	margin: 0 auto;
 	
@@ -369,6 +369,15 @@ nav ul
 .hidden {
 	display: none;
 }
+
+
+.navbig
+{
+	visibility: hidden;
+}
+
+
+
 @media screen and (min-width: 550px)
 {
 body{font-size: 2em;}
@@ -377,17 +386,14 @@ body{font-size: 2em;}
 	font-size: 1em;
 }
 .container {width: 42%;}
-#header2
-{
 
-}
 .fas
 {
 	font-size: 1em;
 	color: white;
 	background-color: #e2b852;
 	padding: 15px;
-	
+	visibility: hidden;
 }
 .resa img
 {
@@ -404,6 +410,72 @@ body{font-size: 2em;}
 	font-size: 2em;
 	color: black;
 	padding: 15px;
+	visibility: hidden;
 }
+
+
+.body
+{
+	display: flex;
+	flex-direction: row;
+}
+
+#menu
+{
+	width:220%;
+	z-index: 2;
+	padding-bottom: 0;
+	visibility: visible;
+}
+nav ul li
+{
+display: flex;
+	justify-content: space-around;
+	margin-left: 30px;
+	font-size: 1.5em;
+	padding-bottom: 0;
+}
+
+nav ul li a
+{
+	width: 300px;
+}
+
+.icons
+{
+	margin-left: 15px;
+}
+.icons img
+{
+	text-align: center;
+	width: 20%;
+	color: silver;
+	display: inline-block;
+
+
+}
+.icons a:first-child img
+{
+	width: 20%;
+	margin: 0;
+	
+}
+
+nav ul
+{
+	display: flex;
+	flex-direction: row;
+	
+	flex-basis: 1;
+
+}
+.navbig
+{
+	width: 75%;
+	margin: 0 auto;
+	padding: 20px;
+	visibility: visible;
+}
+
 
 }

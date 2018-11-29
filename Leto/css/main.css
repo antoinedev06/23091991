@@ -373,7 +373,7 @@ nav ul
 
 .navbig
 {
-	visibility: hidden;
+	display: none;
 }
 
 
@@ -474,7 +474,7 @@ nav ul
 	width: 75%;
 	margin: 0 auto;
 	padding: 20px;
-	visibility: visible;
+	display: block;
 }
 
 

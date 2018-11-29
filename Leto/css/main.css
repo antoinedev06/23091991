@@ -42,7 +42,7 @@ header
 
 .fas
 {
-	font-size: 1.5em;
+	font-size: 2.5em;
 	color: white;
 	background-color: #e2b852;
 	padding: 15px;
@@ -58,7 +58,7 @@ header
 }
 .far
 {
-	font-size: 4.5em;
+	font-size: 5.5em;
 	color: black;
 	
 	padding: 15px;
@@ -443,23 +443,22 @@ nav ul li a
 	width: 300px;
 }
 
-.icons
-{
-	margin-left: 15px;
-}
+
 .icons img
 {
 	text-align: center;
-	width: 20%;
+	width: 10%;
 	color: silver;
 	display: inline-block;
+	border-radius: 50%;
 
 
 }
 .icons a:first-child img
 {
-	width: 20%;
+	width: 10%;
 	margin: 0;
+
 	
 }
 
@@ -473,11 +472,35 @@ nav ul
 }
 .navbig
 {
-	width: 75%;
+	width: 100%;
 	margin: 0 auto;
 	padding: 20px;
+
 	display: block;
+	color: white;
+	background-color: black;
+}
+.navbig ul li a
+{
+	color: white;
 }
 
-
+.navbig ul
+{
+	height: 30px;
+	font-size: 0.8em;
+}
+header>img
+{
+	margin-top: 20px;
+	box-shadow: -5px 5px 25px black;
+}
+main
+{
+	box-shadow: -5px 5px 25px black;
+}
+.syno
+{
+	margin-top:20px;
+}
 }

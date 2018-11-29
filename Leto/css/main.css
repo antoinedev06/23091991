@@ -92,7 +92,7 @@ header
 .Synopsis
 {
 	font-size: 1.5em;
-
+	
 	width: 95%;
 	margin: 20px auto;
 }
@@ -321,7 +321,7 @@ nav ul
 	
 	width: 100%;
 	background-color: #edeef2;
-	box-shadow: 1px 1px 1px black;
+	box-shadow: -5px 5px 25px black;
 
 		
 }
@@ -448,6 +448,8 @@ nav ul li a
 {
 	text-align: center;
 	width: 10%;
+	max-width: 70px;
+	min-width:10px;
 	color: silver;
 	display: inline-block;
 	border-radius: 50%;
@@ -497,7 +499,7 @@ header>img
 }
 main
 {
-	box-shadow: -5px 5px 25px black;
+	/*box-shadow: -5px 5px 25px black;*/
 }
 .syno
 {

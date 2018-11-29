@@ -134,7 +134,7 @@ p
  {
  	text-decoration: none;
  	color: black;
- 	
+ 	padding: 20px;
 
  }
 form
@@ -403,7 +403,7 @@ body{font-size: 2em;}
  {
  	width: 100%;
  	text-align: left;
- 	
+ 	padding: 0;
  }
 .far
 {

@@ -1,3 +1,6 @@
+//id paris 22667
+//id lyon  23804
+
 // cette fonction fait un appel ajax 
 // en fonction d'un mot clef
 
@@ -26,7 +29,7 @@ function displayCities(response) {
     // je vide la list à chaque foisavant de append
     $('#data_list').empty();
 
-    // je veux pas pluis de 5 propositions
+    // je veux pas plus de 5 propositions
     var len = response.cities.length;
     if (len > 6) {
         len = 6
@@ -39,7 +42,6 @@ function displayCities(response) {
     
 }
 
-//lyon 23804
 
 
 function findShowtimesByCity(cityId, movieId, dateFrom, dateTo) {
@@ -165,10 +167,7 @@ function onClickRecupDate() {
     findShowtimesByCinema(cineId, 52340, dateClick, k)
 }
 
-//paris 22667
-//lyon  23804
-//findShowtimesByCity(23804, 52340, '2018-11-26T00:01', '2018-12-26T23:59');
-//findCinemaById(60431);
+
 
 function findCinemaById(cineId) {
     $.ajax({

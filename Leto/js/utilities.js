@@ -37,20 +37,11 @@ function splitSeance(string) {
 
 function automatiseCalendar(j, cineId) {
     var date = new Date($('#selectDay').val());
-
     var month = date.getMonth();
     var monthNum = date.getMonth()+1;
     var day = date.getDay();
     var dateDay = date.getDate();
     var year = date.getFullYear();
-
-    // if (month < 10) {
-    //     month = '0'+month;
-    // }
-
-    // if (dateDay < 10) {
-    //     dateDay = '0'+dateDay;
-    // }
 
     var days = ['DIM','LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM'];
     var months = ['jan','fev', 'mar', 'avr', 'mai', 'jui', 'jui', 'aou', 'sep', 'oct', 'nov','dec'];
@@ -67,7 +58,6 @@ function automatiseCalendar(j, cineId) {
         var month = date.getMonth();
         var monthNum = date.getMonth()+1;
         var day = date.getDay();
-        
 
         $('.resa-'+j+' .calendar').append('<li class="" data-resa="'+j+'" data-cineId="'+cineId+'" data-date="'+year+'-'+monthNum+'-'+dateDay+'" id="day'+i+'">'+days[day]+'<br>'+months[month]+'<br>'+dateDay+'</li>');
 
